@@ -3,119 +3,74 @@
     const ctx = canvas.getContext('2d');
     let width, height;
 
-    // Grid configuration matching the CSS background size
-    const gridSize = 50;
-    const speed = 2; // Movement speed in pixels per frame
-    const packetCount = 20;
-    const packets = [];
+    // Configuration
+    const gridSize = 40; // Spacing between points
+    const baseSize = 1.5; // Base size of squares
+    const waveSpeed = 0.001; // Speed of the wave
+    const waveFrequency = 0.02; // Frequency of the wave
+
+    let time = 0;
+    let mouse = { x: -1000, y: -1000 };
 
     function resize() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     }
     window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
     resize();
 
-    class Packet {
-        constructor() {
-            this.reset();
-        }
-
-        reset() {
-            // Start at a random grid intersection
-            this.x = Math.floor(Math.random() * (width / gridSize)) * gridSize;
-            this.y = Math.floor(Math.random() * (height / gridSize)) * gridSize;
-
-            // 0: Right, 1: Down, 2: Left, 3: Up
-            this.dir = Math.floor(Math.random() * 4);
-            this.life = Math.random() * 200 + 100; // Frames to live
-            this.history = []; // Trail positions
-            this.maxHistory = 15;
-            this.color = '#30e9bb';
-        }
-
-        update() {
-            this.life--;
-            if (this.life <= 0) {
-                this.reset();
-                return;
-            }
-
-            // Record history for trail
-            this.history.push({ x: this.x, y: this.y });
-            if (this.history.length > this.maxHistory) {
-                this.history.shift();
-            }
-
-            // Move logic
-            switch (this.dir) {
-                case 0: this.x += speed; break;
-                case 1: this.y += speed; break;
-                case 2: this.x -= speed; break;
-                case 3: this.y -= speed; break;
-            }
-
-            // Boundary check
-            if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-                this.reset();
-            }
-
-            // Intersection Logic: Chance to turn when hitting grid lines
-            // We check if we are exactly at a multiple of gridSize
-            if (this.x % gridSize === 0 && this.y % gridSize === 0) {
-                // 30% chance to turn
-                if (Math.random() < 0.3) {
-                    // Pick a new valid direction (prevent 180 degree turns usually looks better, but random is fine)
-                    const turn = Math.random() > 0.5 ? 1 : 3; // Turn right or left relative to current index? 
-                    // Simple logic: just random new direction
-                    this.dir = Math.floor(Math.random() * 4);
-                }
-            }
-        }
-
-        draw() {
-            // Draw Trail
-            if (this.history.length > 1) {
-                ctx.beginPath();
-                ctx.moveTo(this.history[0].x, this.history[0].y);
-                for (let i = 1; i < this.history.length; i++) {
-                    ctx.lineTo(this.history[i].x, this.history[i].y);
-                }
-                // Add current pos
-                ctx.lineTo(this.x, this.y);
-
-                ctx.strokeStyle = this.color;
-                ctx.lineWidth = 1.5;
-                // Fade out trail at the end using globalAlpha if desired, or gradient.
-                // Simple stroke for minimal look
-                ctx.stroke();
-            }
-
-            // Draw Head
-            ctx.fillStyle = '#fff'; // White hot head
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    // Initialize packets
-    for (let i = 0; i < packetCount; i++) {
-        packets.push(new Packet());
-    }
-
-    function animate() {
+    function draw() {
         ctx.clearRect(0, 0, width, height);
 
-        // Optional: Draw grid points strictly? No, CSS handles the grid lines.
+        const cols = Math.ceil(width / gridSize);
+        const rows = Math.ceil(height / gridSize);
 
-        packets.forEach(packet => {
-            packet.update();
-            packet.draw();
-        });
+        time += 1;
 
-        requestAnimationFrame(animate);
+        for (let i = 0; i <= cols; i++) {
+            for (let j = 0; j <= rows; j++) {
+                const x = i * gridSize;
+                const y = j * gridSize;
+
+                // Calculate distance from mouse for interaction
+                const dx = x - mouse.x;
+                const dy = y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const interactionRadius = 200;
+                let interactionFactor = 0;
+
+                if (dist < interactionRadius) {
+                    interactionFactor = (1 - dist / interactionRadius);
+                }
+
+                // Organic Wave Calculation
+                // Combine sine waves on X and Y axis with time
+                const wave = Math.sin(x * waveFrequency + time * waveSpeed) +
+                    Math.cos(y * waveFrequency + time * waveSpeed);
+
+                // Map wave (-2 to 2) to a scale factor (0.5 to 1.5)
+                let scale = (wave + 2) / 4 + 0.5;
+
+                // Add interaction effect
+                scale += interactionFactor * 1.5;
+
+                // Opacity based on scale
+                const opacity = Math.min(0.1 + (scale - 0.5) * 0.2, 0.8);
+
+                // Draw Square
+                const currentSize = baseSize * scale;
+
+                ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                ctx.fillRect(x - currentSize / 2, y - currentSize / 2, currentSize, currentSize);
+            }
+        }
+
+        requestAnimationFrame(draw);
     }
 
-    animate();
+    draw();
 })();
