@@ -4,10 +4,10 @@
     let width, height;
 
     // Configuration
-    const gridSize = 40; // Spacing between points
-    const baseSize = 1.5; // Base size of squares
-    const waveSpeed = 0.001; // Speed of the wave
-    const waveFrequency = 0.02; // Frequency of the wave
+    const gridSize = 30; // Spacing between points
+    const baseSize = 1; // Base size of squares
+    const waveSpeed = 0.05; // Speed of the wave
+    const waveFrequency = 0.01; // Frequency of the wave
 
     let time = 0;
     let mouse = { x: -1000, y: -1000 };
@@ -56,10 +56,10 @@
                 let scale = (wave + 2) / 4 + 0.5;
 
                 // Add interaction effect
-                scale += interactionFactor * 1.5;
+                scale += interactionFactor * 1;
 
                 // Opacity based on scale
-                const opacity = Math.min(0.1 + (scale - 0.5) * 0.2, 0.8);
+                const opacity = Math.min(0.1 + (scale - 0.5) * 0.5, 0.8);
 
                 // Draw Square
                 const currentSize = baseSize * scale;
