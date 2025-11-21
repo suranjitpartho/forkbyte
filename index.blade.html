@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS.DEV | Modern Web Development</title>
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <!-- Alpine Data -->
+    <script src="js/alpine-data.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Google Fonts: Barlow -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body x-data="layout" class="selection:bg-[#30e9bb]/30 selection:text-[#30e9bb]">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-900/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-900/10 rounded-full blur-[100px]"></div>
+
+        <!-- Grid Overlay -->
+        <div class="absolute inset-0 opacity-[0.03] grid-pattern"></div>
+
+        <!-- Digital Data Animation Canvas -->
+        <canvas id="circuit-canvas" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+    </div>
+
+    <div data-include="components/header.blade.html"></div>
+
+    <div data-include="components/hero.blade.html"></div>
+
+    <div data-include="components/stats.blade.html"></div>
+
+    <div data-include="components/services.blade.html"></div>
+
+    <div data-include="components/work.blade.html"></div>
+
+    <div data-include="components/process.blade.html"></div>
+
+    <div data-include="components/footer.blade.html"></div>
+
+    <!-- Circuit Board Animation Script -->
+    <script src="js/circuit-animation.js"></script>
+    <!-- Component Loader -->
+    <script src="js/component-loader.js"></script>
+</body>
+
+</html>

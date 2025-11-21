@@ -1,0 +1,50 @@
+:root {
+    --primary: #30e9bb;
+    --secondary: #8cd3ad;
+    --primaryDark: #10785eff;
+    --primaryLight: #8ad8c4ff;
+    --backgroundDark-600: #272a37;
+    --backgroundDark-400: #373a49;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+body {
+    background-color: #272a37;
+    color: #e2e2e2;
+    overflow-x: hidden;
+}
+
+.glass-card {
+    background: rgba(23, 23, 23, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+    border-color: rgba(48, 233, 187, 0.3);
+    box-shadow: 0 0 30px rgba(48, 233, 187, 0.1);
+}
+
+/* Grid Pattern */
+.grid-pattern {
+    background-image: linear-gradient(to right, #333 1px, transparent 1px),
+        linear-gradient(to bottom, #333 1px, transparent 1px);
+    background-size: 50px 50px;
+}
