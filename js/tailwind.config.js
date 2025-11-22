@@ -26,6 +26,7 @@ tailwind.config = {
                 'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 'spin-double-fade': 'spin-double-fade 8s linear infinite',
+                'spin-card-sequence': 'spin-card-sequence 12s linear infinite',
             },
             keyframes: {
                 fadeInUp: {
@@ -37,6 +38,13 @@ tailwind.config = {
                     '5%': { opacity: '1' },
                     '25%': { transform: 'rotate(1800deg)', opacity: '1' },
                     '30%': { opacity: '0' },
+                    '100%': { transform: 'rotate(1800deg)', opacity: '0' }
+                },
+                'spin-card-sequence': {
+                    '0%': { transform: 'rotate(0deg)', opacity: '0' },
+                    '2%': { opacity: '1' },
+                    '20%': { transform: 'rotate(1800deg)', opacity: '1' },
+                    '22%': { opacity: '0' },
                     '100%': { transform: 'rotate(1800deg)', opacity: '0' }
                 }
             }
