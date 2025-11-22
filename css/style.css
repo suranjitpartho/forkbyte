@@ -9,20 +9,20 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #000;
+    background: var(--backgroundDark-600);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: var(--backgroundDark-400);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #444;
+    background: #3f4253;
 }
 
 body {
