@@ -4,7 +4,7 @@
     let width, height;
 
     // Configuration
-    const gridSize = 30; // Spacing between points
+    const gridSize = 25; // Spacing between points
     const baseSize = 1; // Base size of squares
     const waveSpeed = 0.06; // Speed of the wave
     const waveFrequency = 0.01; // Frequency of the wave
@@ -40,7 +40,7 @@
                 const dx = x - mouse.x;
                 const dy = y - mouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                const interactionRadius = 200;
+                const interactionRadius = 100;
                 let interactionFactor = 0;
 
                 if (dist < interactionRadius) {
