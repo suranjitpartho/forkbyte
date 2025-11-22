@@ -32,8 +32,8 @@
         <!-- Grid Overlay -->
         <div class="absolute inset-0 opacity-[0.03] grid-pattern"></div>
 
-        <!-- Digital Data Animation Canvas -->
-        <canvas id="circuit-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+        <!-- 3D Background Canvas -->
+        <canvas id="three-canvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
     </div>
 
     <?php include 'components/header.blade.html'; ?>
@@ -50,8 +50,10 @@
 
     <?php include 'components/footer.blade.html'; ?>
 
-    <!-- Circuit Board Animation Script -->
-    <script src="js/circuit-animation.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- 3D Background Script -->
+    <script src="js/three-background.js"></script>
 </body>
 
 </html>

@@ -10,6 +10,7 @@ tailwind.config = {
                 accent: '#44dc7eff',
                 primaryDark: '#10785eff',
                 primaryLight: '#8ad8c4ff',
+                subAccent: '#baee1cff',
 
                 text: {
                     200: '#ecececff',
