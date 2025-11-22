@@ -1,8 +1,15 @@
 <!-- Services Section -->
-<section id="services" class="py-32 relative z-10 px-6">
+<section id="services" class="py-32 relative z-10 px-6" x-data="{ shown: false }" x-init="const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        shown = true;
+        observer.disconnect();
+    }
+}, { threshold: 0.1 });
+observer.observe($el);">
     <div class="max-w-7xl mx-auto">
         <!-- Heading Component -->
-        <div class="mb-12 text-center">
+        <div class="mb-12 text-center transition-all duration-1000 ease-out transform"
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <h3 class="text-primary font-semibold tracking-wider uppercase text-sm mb-2">What We Do</h3>
             <h2 class="text-4xl md:text-5xl font-regular tracking-tight text-text-200">Engineering Excellence</h2>
             <div class="h-1 w-20 bg-gradient-to-r from-primary to-secondary mt-4 rounded-full mx-auto"></div>
@@ -11,67 +18,94 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             <!-- Service 1: Enterprise Web Systems -->
-            <div class="glass-card p-8 rounded-2xl group transition-all duration-300">
-                <div
-                    class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <!-- Icon: Layers/Stack -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                        <polyline points="2 17 12 22 22 17"></polyline>
-                        <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
+            <div class="relative group rounded-2xl p-[1px] overflow-hidden transition-all duration-1000 delay-100 ease-out transform"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
+                <!-- Gemini Glow Effect -->
+                <span
+                    class="absolute inset-[-1000%] animate-spin-double-fade bg-[conic-gradient(from_90deg_at_50%_50%,theme('colors.primaryDark')_0%,theme('colors.primary')_50%,theme('colors.accent')_100%)]"
+                    style="animation-delay: 0s;"></span>
+
+                <div class="p-8 rounded-2xl h-full relative bg-backgroundDark-800 backdrop-blur-xl transition-colors">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <!-- Icon: Layers/Stack -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Enterprise Web Systems</h3>
+                    <p class="text-text-400 leading-relaxed">
+                        Custom-engineered websites and MIS platforms designed for scale. We blend aesthetic excellence
+                        with
+                        robust functionality to streamline your operations.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">Enterprise Web Systems</h3>
-                <p class="text-gray-300 leading-relaxed">
-                    Custom-engineered websites and MIS platforms designed for scale. We blend aesthetic excellence with
-                    robust functionality to streamline your operations.
-                </p>
             </div>
 
             <!-- Service 2: Data Intelligence -->
-            <div class="glass-card p-8 rounded-2xl group transition-all duration-300">
-                <div
-                    class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <!-- Icon: Bar Chart -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                    </svg>
+            <div class="relative group rounded-2xl p-[1px] overflow-hidden transition-all duration-1000 delay-200 ease-out transform"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
+                <!-- Gemini Glow Effect -->
+                <span
+                    class="absolute inset-[-1000%] animate-spin-double-fade bg-[conic-gradient(from_90deg_at_50%_50%,theme('colors.primaryDark')_0%,theme('colors.primary')_50%,theme('colors.accent')_100%)]"
+                    style="animation-delay: 2.6s;"></span>
+
+                <div class="p-8 rounded-2xl h-full relative bg-backgroundDark-800 backdrop-blur-xl transition-colors">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <!-- Icon: Bar Chart -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Data Intelligence</h3>
+                    <p class="text-text-400 leading-relaxed">
+                        Turn complexity into clarity. We build interactive, real-time analytics dashboards that
+                        visualize
+                        your key metrics and drive data-backed decisions.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">Data Intelligence</h3>
-                <p class="text-gray-300 leading-relaxed">
-                    Turn complexity into clarity. We build interactive, real-time analytics dashboards that visualize
-                    your key metrics and drive data-backed decisions.
-                </p>
             </div>
 
             <!-- Service 3: AI & Automation -->
-            <div class="glass-card p-8 rounded-2xl group transition-all duration-300">
-                <div
-                    class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <!-- Icon: CPU/Chip -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <rect x="9" y="9" width="6" height="6"></rect>
-                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                        <line x1="20" y1="15" x2="23" y2="15"></line>
-                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                        <line x1="1" y1="15" x2="4" y2="15"></line>
-                    </svg>
+            <div class="relative group rounded-2xl p-[1px] overflow-hidden transition-all duration-1000 delay-300 ease-out transform"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
+                <!-- Gemini Glow Effect -->
+                <span
+                    class="absolute inset-[-1000%] animate-spin-double-fade bg-[conic-gradient(from_90deg_at_50%_50%,theme('colors.primaryDark')_0%,theme('colors.primary')_50%,theme('colors.accent')_100%)]"
+                    style="animation-delay: 5.2s;"></span>
+
+                <div class="p-8 rounded-2xl h-full relative bg-backgroundDark-800 backdrop-blur-xl transition-colors">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <!-- Icon: CPU/Chip -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#30e9bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="15" x2="23" y2="15"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="15" x2="4" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">AI & Automation</h3>
+                    <p class="text-text-400 leading-relaxed">
+                        Deploy intelligent AI agents that work for you. We automate workflows and enhance user
+                        interactions
+                        with cutting-edge, small-scale AI solutions.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">AI & Automation</h3>
-                <p class="text-gray-300 leading-relaxed">
-                    Deploy intelligent AI agents that work for you. We automate workflows and enhance user interactions
-                    with cutting-edge, small-scale AI solutions.
-                </p>
             </div>
 
         </div>
