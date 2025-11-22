@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio Section</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config for Animations & Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+        body {
+            background-color: #050505;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Hide scrollbar for cleaner look in some browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+    </style>
+</head>
+
+<body class="bg-[#050505] text-white overflow-x-hidden selection:bg-indigo-500/30 selection:text-indigo-200">
+
+    <section class="relative w-full min-h-screen py-20 px-4">
+
+        <!-- Background Ambiance -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-500/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <!-- Grid Pattern Overlay -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 animate-fade-in-up"
+                style="animation-delay: 0ms;">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400 animate-pulse"></i>
+                        <span class="text-indigo-400 font-mono text-xs tracking-[0.2em] uppercase">Selected Works</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+                        Digital <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Evolution</span>
+                    </h2>
+                    <p class="text-neutral-400 text-lg max-w-lg leading-relaxed">
+                        We architect digital ecosystems. From enterprise-grade systems to autonomous AI agents, we build
+                        the future.
+                    </p>
+                </div>
+
+                <button
+                    class="group flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 border border-neutral-800 text-white text-sm font-medium transition-all hover:bg-neutral-800 hover:border-neutral-700 hover:scale-105 active:scale-95">
+                    View All Projects
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Project 1: E-Commerce -->
+                <div class="h-full animate-fade-in-up spotlight-card-wrapper" style="animation-delay: 150ms;">
+                    <div
+                        class="spotlight-card relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm transition-colors duration-500 hover:border-neutral-700 group">
+
+                        <!-- Spotlight Effects (Injected via JS) -->
+                        <div
+                            class="spotlight-glow pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+                        <div
+                            class="spotlight-border pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+
+                        <!-- Visual Area: Ecommerce -->
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-neutral-900 to-neutral-800 relative overflow-hidden group z-10">
+                            <div
+                                class="absolute inset-0 flex items-center justify-center gap-4 opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out">
+                                <div
+                                    class="w-16 h-24 bg-neutral-700/50 rounded-lg transform -translate-y-4 border border-neutral-600/30">
+                                </div>
+                                <div
+                                    class="w-20 h-32 bg-indigo-500/20 rounded-lg border border-indigo-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(99,102,241,0.2)] z-10 flex items-center justify-center">
+                                    <i data-lucide="shopping-cart" class="text-indigo-400 w-6 h-6"></i>
+                                </div>
+                                <div
+                                    class="w-16 h-24 bg-neutral-700/50 rounded-lg transform translate-y-4 border border-neutral-600/30">
+                                </div>
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-neutral-800/80 px-2 py-1 rounded-full border border-neutral-700 text-[10px] text-neutral-400 font-mono flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Live
+                            </div>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="p-6 flex flex-col flex-grow relative z-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <span
+                                    class="inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800/50 px-2.5 py-0.5 text-xs font-medium text-neutral-300 ring-1 ring-inset ring-white/5">
+                                    E-Commerce
+                                </span>
+                                <i data-lucide="arrow-up-right"
+                                    class="h-5 w-5 text-neutral-500 transition-colors hover:text-white cursor-pointer"></i>
+                            </div>
+
+                            <h3
+                                class="text-xl font-semibold text-white mb-2 tracking-tight group-hover:text-indigo-400 transition-colors">
+                                Nexus Commerce
+                            </h3>
+
+                            <p class="text-neutral-400 text-sm leading-relaxed mb-6 flex-grow">
+                                A high-performance headless storefront featuring real-time inventory, AI-driven product
+                                recommendations, and sub-second page loads.
+                            </p>
+
+                            <div class="pt-4 border-t border-neutral-800">
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Next.js
+                                        14</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Stripe</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Redis</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Tailwind</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Enterprise MIS -->
+                <div class="h-full animate-fade-in-up spotlight-card-wrapper" style="animation-delay: 300ms;">
+                    <div
+                        class="spotlight-card relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm transition-colors duration-500 hover:border-neutral-700 group">
+
+                        <!-- Spotlight Effects -->
+                        <div
+                            class="spotlight-glow pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+                        <div
+                            class="spotlight-border pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+
+                        <!-- Visual Area: Enterprise -->
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-neutral-900 to-neutral-800 relative overflow-hidden group z-10">
+                            <div
+                                class="absolute inset-x-8 inset-y-6 bg-neutral-800/50 rounded-xl border border-neutral-700/50 p-3 flex flex-col gap-2 group-hover:translate-y-[-5px] transition-transform duration-500">
+                                <div class="flex gap-2">
+                                    <div class="w-1/3 h-12 bg-emerald-500/10 rounded-md border border-emerald-500/20">
+                                    </div>
+                                    <div class="w-2/3 h-12 bg-neutral-700/30 rounded-md"></div>
+                                </div>
+                                <div class="flex-1 bg-neutral-700/20 rounded-md flex items-end justify-around px-2 pb-1 gap-1"
+                                    id="bar-chart-container">
+                                    <!-- Bars generated by JS or static -->
+                                    <div class="w-full bg-emerald-500/30 rounded-t-sm h-[40%]"></div>
+                                    <div class="w-full bg-emerald-500/30 rounded-t-sm h-[70%]"></div>
+                                    <div class="w-full bg-emerald-500/30 rounded-t-sm h-[50%]"></div>
+                                    <div class="w-full bg-emerald-500/30 rounded-t-sm h-[90%]"></div>
+                                    <div class="w-full bg-emerald-500/30 rounded-t-sm h-[60%]"></div>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px]">
+                            </div>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="p-6 flex flex-col flex-grow relative z-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <span
+                                    class="inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800/50 px-2.5 py-0.5 text-xs font-medium text-neutral-300 ring-1 ring-inset ring-white/5">
+                                    Enterprise MIS
+                                </span>
+                                <i data-lucide="arrow-up-right"
+                                    class="h-5 w-5 text-neutral-500 transition-colors hover:text-white cursor-pointer"></i>
+                            </div>
+
+                            <h3
+                                class="text-xl font-semibold text-white mb-2 tracking-tight group-hover:text-indigo-400 transition-colors">
+                                Vanguard Analytics
+                            </h3>
+
+                            <p class="text-neutral-400 text-sm leading-relaxed mb-6 flex-grow">
+                                Comprehensive management information system processing TBs of data for predictive
+                                insights. Features granular RBAC and interactive visualization.
+                            </p>
+
+                            <div class="pt-4 border-t border-neutral-800">
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Python</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">PostgreSQL</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">D3.js</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: AI Agent -->
+                <div class="h-full animate-fade-in-up spotlight-card-wrapper" style="animation-delay: 450ms;">
+                    <div
+                        class="spotlight-card relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm transition-colors duration-500 hover:border-neutral-700 group">
+
+                        <!-- Spotlight Effects -->
+                        <div
+                            class="spotlight-glow pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+                        <div
+                            class="spotlight-border pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0">
+                        </div>
+
+                        <!-- Visual Area: AI -->
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-neutral-900 to-neutral-800 relative overflow-hidden group z-10">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="absolute w-32 h-32 bg-fuchsia-500/20 rounded-full blur-2xl animate-pulse">
+                                </div>
+                                <div
+                                    class="relative z-10 grid grid-cols-3 gap-3 opacity-80 group-hover:rotate-12 transition-transform duration-700">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(232,121,249,0.5)]">
+                                    </div>
+                                </div>
+                                <svg class="absolute w-full h-full opacity-30" viewBox="0 0 100 100">
+                                    <path d="M50 50 L35 35 M50 50 L65 35 M50 50 L35 65 M50 50 L65 65" stroke="white"
+                                        stroke-width="0.5"></path>
+                                    <circle cx="50" cy="50" r="15" stroke="rgba(232,121,249,0.5)" stroke-width="0.5"
+                                        fill="none" class="group-hover:scale-125 transition-transform duration-700">
+                                    </circle>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="p-6 flex flex-col flex-grow relative z-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <span
+                                    class="inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800/50 px-2.5 py-0.5 text-xs font-medium text-neutral-300 ring-1 ring-inset ring-white/5">
+                                    Generative AI
+                                </span>
+                                <i data-lucide="arrow-up-right"
+                                    class="h-5 w-5 text-neutral-500 transition-colors hover:text-white cursor-pointer"></i>
+                            </div>
+
+                            <h3
+                                class="text-xl font-semibold text-white mb-2 tracking-tight group-hover:text-indigo-400 transition-colors">
+                                Aether Agent
+                            </h3>
+
+                            <p class="text-neutral-400 text-sm leading-relaxed mb-6 flex-grow">
+                                Autonomous customer support agent capable of performing complex actions. Built on a
+                                custom RAG architecture with vector memory.
+                            </p>
+
+                            <div class="pt-4 border-t border-neutral-800">
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">LangChain</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">Pinecone</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">OpenAI</span>
+                                    <span
+                                        class="text-[10px] font-mono uppercase tracking-wider text-neutral-500 hover:text-neutral-300 transition-colors">FastAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Stats / Trust Banner (Bottom) -->
+            <div
+                class="mt-24 pt-8 border-t border-neutral-900 flex flex-wrap justify-center md:justify-between gap-8 opacity-60 hover:opacity-100 transition-opacity duration-500">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-neutral-900 rounded-lg border border-neutral-800">
+                        <i data-lucide="code-2" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold">100%</span>
+                        <span class="text-xs text-neutral-500 uppercase tracking-wider">Clean Code</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-neutral-900 rounded-lg border border-neutral-800">
+                        <i data-lucide="layers" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold">Scalable</span>
+                        <span class="text-xs text-neutral-500 uppercase tracking-wider">Architecture</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-neutral-900 rounded-lg border border-neutral-800">
+                        <i data-lucide="brain" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold">AI Native</span>
+                        <span class="text-xs text-neutral-500 uppercase tracking-wider">Solutions</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Spotlight Effect Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.spotlight-card');
+
+            cards.forEach(card => {
+                const glowLayer = card.querySelector('.spotlight-glow');
+                const borderLayer = card.querySelector('.spotlight-border');
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Update the Glow Layer (Soft Purple)
+                    glowLayer.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(120, 119, 198, 0.15), transparent 40%)`;
+                    glowLayer.style.opacity = '1';
+
+                    // Update the Border Layer (White highlight)
+                    borderLayer.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), transparent 40%)`;
+                    borderLayer.style.opacity = '1';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    glowLayer.style.opacity = '0';
+                    borderLayer.style.opacity = '0';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

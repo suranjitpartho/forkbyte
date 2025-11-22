@@ -1,4 +1,4 @@
-<!-- Featured Work - Bento Grid Style -->
+<!-- Featured Work - Spotlight Grid -->
 <section id="work" class="py-32 relative z-10 px-6" x-data="{ shown: false }" x-init="const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
         shown = true;
@@ -6,151 +6,373 @@
     }
 }, { threshold: 0.1 });
 observer.observe($el);">
-    <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 transition-all duration-1000 ease-out transform"
+
+    <!-- Background Ambiance -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none">
+    </div>
+    <div
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full pointer-events-none">
+    </div>
+
+    <!-- Grid Pattern Overlay -->
+    <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 transition-all duration-1000 ease-out transform"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-            <div class="text-left">
-                <h3 class="text-primary font-semibold tracking-wider uppercase text-sm mb-2">Portfolio</h3>
-                <h2 class="text-4xl md:text-5xl font-regular text-text-200 tracking-tight">Selected Works</h2>
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-primary animate-pulse">
+                        <path
+                            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                    </svg>
+                    <span class="text-primary font-mono text-xs tracking-[0.2em] uppercase">Selected Works</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-200 tracking-tight mb-4">
+                    Digital <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Evolution</span>
+                </h2>
+                <p class="text-text-400 text-lg max-w-lg leading-relaxed">
+                    We architect digital ecosystems. From enterprise-grade systems to autonomous AI agents, we build the
+                    future.
+                </p>
             </div>
+
             <button
-                class="mt-6 md:mt-0 group border border-primary/30 text-primary px-6 py-3 rounded-full hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 flex items-center gap-2">
-                <span class="font-medium">View Github</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                class="group flex items-center gap-2 px-6 py-3 rounded-full bg-backgroundDark-600 border border-white/5 text-text-200 text-sm font-medium transition-all hover:bg-backgroundDark-400 hover:border-primary/30 hover:scale-105 active:scale-95">
+                View All Projects
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="group-hover:translate-x-1 transition-transform">
-                    <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                    </path>
+                    class="transition-transform group-hover:translate-x-1">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
                 </svg>
             </button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
-            <!-- Project 1 - Large (EcoMonitor) -->
-            <div class="md:col-span-2 row-span-2 group relative overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/50 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(48,233,187,0.15)] delay-100"
-                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-
-                <!-- Tech Overlay/Grid -->
+            <!-- Project 1: LuxeCart (E-Commerce) -->
+            <div class="h-full transition-all duration-1000 delay-100"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+                x-data="{ x: 0, y: 0, opacity: 0 }" @mousemove="
+                    const rect = $el.getBoundingClientRect();
+                    x = $event.clientX - rect.left;
+                    y = $event.clientY - rect.top;
+                    opacity = 1;
+                " @mouseleave="opacity = 0">
                 <div
-                    class="absolute inset-0 bg-[linear-gradient(rgba(48,233,187,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(48,233,187,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                </div>
+                    class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/30 backdrop-blur-sm transition-colors duration-500 hover:border-primary/30 group">
 
-                <!-- Abstract Visual: Data Nodes -->
-                <div
-                    class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-60 transition-opacity duration-700">
-                    <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="w-full h-full object-contain text-primary">
-                        <!-- Central Hub -->
-                        <circle cx="200" cy="150" r="40" stroke="currentColor" stroke-width="1"
-                            class="animate-pulse-slow" stroke-opacity="0.5" />
-                        <circle cx="200" cy="150" r="20" fill="currentColor" fill-opacity="0.1" />
-
-                        <!-- Satellite Nodes -->
-                        <circle cx="100" cy="80" r="8" fill="currentColor" fill-opacity="0.4"
-                            class="group-hover:translate-x-2 transition-transform duration-1000" />
-                        <line x1="108" y1="86" x2="170" y2="130" stroke="currentColor" stroke-width="1"
-                            stroke-opacity="0.2" />
-
-                        <circle cx="300" cy="100" r="6" fill="currentColor" fill-opacity="0.4"
-                            class="group-hover:-translate-x-2 transition-transform duration-1000" />
-                        <line x1="294" y1="104" x2="230" y2="135" stroke="currentColor" stroke-width="1"
-                            stroke-opacity="0.2" />
-
-                        <circle cx="150" cy="250" r="10" fill="currentColor" fill-opacity="0.4"
-                            class="group-hover:-translate-y-2 transition-transform duration-1000" />
-                        <line x1="156" y1="238" x2="185" y2="180" stroke="currentColor" stroke-width="1"
-                            stroke-opacity="0.2" />
-
-                        <circle cx="320" cy="220" r="5" fill="currentColor" fill-opacity="0.4"
-                            class="group-hover:translate-y-2 transition-transform duration-1000" />
-                        <line x1="315" y1="215" x2="230" y2="165" stroke="currentColor" stroke-width="1"
-                            stroke-opacity="0.2" />
-                    </svg>
-                </div>
-
-                <!-- Content -->
-                <div
-                    class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-backgroundDark-800 via-backgroundDark-800/80 to-transparent">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span
-                            class="font-mono text-xs text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">//
-                            IOT_INTEGRATION</span>
-                        <span
-                            class="font-mono text-xs text-text-400 border border-white/10 px-2 py-1 rounded">D3.JS</span>
+                    <!-- Spotlight Effects -->
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(48, 233, 187, 0.15), transparent 40%); opacity: ${opacity}`">
                     </div>
-                    <h3
-                        class="text-3xl font-regular text-text-200 mb-2 group-hover:text-primary transition-colors duration-300">
-                        EcoMonitor System</h3>
-                    <p class="text-text-400 max-w-lg leading-relaxed">
-                        A real-time energy consumption tracking platform. Visualizing complex sensor data into
-                        actionable insights for sustainable infrastructure.
-                    </p>
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), transparent 40%); opacity: ${opacity}`">
+                    </div>
+
+                    <!-- Visual Area: Ecommerce -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-backgroundDark-600 to-backgroundDark-800 relative overflow-hidden group z-10">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center gap-4 opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <div
+                                class="w-16 h-24 bg-backgroundDark-400/50 rounded-lg transform -translate-y-4 border border-white/5">
+                            </div>
+                            <div
+                                class="w-20 h-32 bg-primary/20 rounded-lg border border-primary/30 backdrop-blur-md shadow-[0_0_15px_rgba(48,233,187,0.2)] z-10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-primary">
+                                    <circle cx="8" cy="21" r="1" />
+                                    <circle cx="19" cy="21" r="1" />
+                                    <path
+                                        d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                                </svg>
+                            </div>
+                            <div
+                                class="w-16 h-24 bg-backgroundDark-400/50 rounded-lg transform translate-y-4 border border-white/5">
+                            </div>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-backgroundDark-800/80 px-2 py-1 rounded-full border border-white/10 text-[10px] text-text-400 font-mono flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Live
+                        </div>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="p-6 flex flex-col flex-grow relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-text-200 ring-1 ring-inset ring-white/5">
+                                E-Commerce
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="text-text-600 transition-colors hover:text-primary cursor-pointer">
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-xl font-semibold text-text-200 mb-2 tracking-tight group-hover:text-primary transition-colors">
+                            LuxeCart
+                        </h3>
+
+                        <p class="text-text-400 text-sm leading-relaxed mb-6 flex-grow">
+                            A high-performance headless storefront featuring real-time inventory, AI-driven product
+                            recommendations, and sub-second page loads.
+                        </p>
+
+                        <div class="pt-4 border-t border-white/5">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">Next.js</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">Stripe</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">Redis</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Project 2 - Small Top (Nexus AI) -->
-            <div class="group relative overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/50 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(48,233,187,0.15)] min-h-[280px] delay-200"
-                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-
-                <!-- Abstract Visual: Brain/Circuit -->
+            <!-- Project 2: Apex MIS (Enterprise) -->
+            <div class="h-full transition-all duration-1000 delay-200"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+                x-data="{ x: 0, y: 0, opacity: 0 }" @mousemove="
+                    const rect = $el.getBoundingClientRect();
+                    x = $event.clientX - rect.left;
+                    y = $event.clientY - rect.top;
+                    opacity = 1;
+                " @mouseleave="opacity = 0">
                 <div
-                    class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-700">
-                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="text-primary">
-                        <path
-                            d="M100 40C60 40 40 70 40 100C40 140 70 160 100 160C130 160 160 140 160 100C160 70 140 40 100 40Z"
-                            stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"
-                            class="animate-[spin_10s_linear_infinite]" />
-                        <path
-                            d="M100 60C80 60 60 80 60 100C60 120 80 140 100 140C120 140 140 120 140 100C140 80 120 60 100 60Z"
-                            stroke="currentColor" stroke-width="1" stroke-opacity="0.5" />
-                        <circle cx="100" cy="100" r="10" fill="currentColor" fill-opacity="0.2" />
-                    </svg>
-                </div>
+                    class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/30 backdrop-blur-sm transition-colors duration-500 hover:border-primary/30 group">
 
-                <div
-                    class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-backgroundDark-800 via-backgroundDark-800/80 to-transparent">
-                    <div class="mb-2">
-                        <span
-                            class="font-mono text-[10px] text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">//
-                            AI_AGENTS</span>
+                    <!-- Spotlight Effects -->
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(48, 233, 187, 0.15), transparent 40%); opacity: ${opacity}`">
                     </div>
-                    <h3 class="text-xl font-regular text-text-200 group-hover:text-primary transition-colors">Nexus AI
-                        Chat</h3>
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), transparent 40%); opacity: ${opacity}`">
+                    </div>
+
+                    <!-- Visual Area: Enterprise -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-backgroundDark-600 to-backgroundDark-800 relative overflow-hidden group z-10">
+                        <div
+                            class="absolute inset-x-8 inset-y-6 bg-backgroundDark-800/50 rounded-xl border border-white/10 p-3 flex flex-col gap-2 group-hover:translate-y-[-5px] transition-transform duration-500">
+                            <div class="flex gap-2">
+                                <div class="w-1/3 h-12 bg-primary/10 rounded-md border border-primary/20"></div>
+                                <div class="w-2/3 h-12 bg-white/5 rounded-md"></div>
+                            </div>
+                            <div class="flex-1 bg-white/5 rounded-md flex items-end justify-around px-2 pb-1 gap-1">
+                                <div class="w-full bg-primary/30 rounded-t-sm h-[40%]"></div>
+                                <div class="w-full bg-primary/30 rounded-t-sm h-[70%]"></div>
+                                <div class="w-full bg-primary/30 rounded-t-sm h-[50%]"></div>
+                                <div class="w-full bg-primary/30 rounded-t-sm h-[90%]"></div>
+                                <div class="w-full bg-primary/30 rounded-t-sm h-[60%]"></div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px]">
+                        </div>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="p-6 flex flex-col flex-grow relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-text-200 ring-1 ring-inset ring-white/5">
+                                Enterprise MIS
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="text-text-600 transition-colors hover:text-primary cursor-pointer">
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-xl font-semibold text-text-200 mb-2 tracking-tight group-hover:text-primary transition-colors">
+                            Apex MIS
+                        </h3>
+
+                        <p class="text-text-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Comprehensive management information system processing TBs of data for predictive insights.
+                            Features granular RBAC and interactive visualization.
+                        </p>
+
+                        <div class="pt-4 border-t border-white/5">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">Python</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">PostgreSQL</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">D3.js</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Project 3 - Small Bottom (Connect.io) -->
-            <div class="group relative overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/50 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(48,233,187,0.15)] min-h-[280px] delay-300"
-                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-
-                <!-- Abstract Visual: Network -->
+            <!-- Project 3: Sentient AI (AI Agent) -->
+            <div class="h-full transition-all duration-1000 delay-300"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+                x-data="{ x: 0, y: 0, opacity: 0 }" @mousemove="
+                    const rect = $el.getBoundingClientRect();
+                    x = $event.clientX - rect.left;
+                    y = $event.clientY - rect.top;
+                    opacity = 1;
+                " @mouseleave="opacity = 0">
                 <div
-                    class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-700">
-                    <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="text-primary w-32 h-32">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2" />
-                        <path d="M12 2V22M2 12H22" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2" />
-                        <rect x="8" y="8" width="8" height="8" stroke="currentColor" stroke-width="1"
-                            class="group-hover:rotate-45 transition-transform duration-700 origin-center" />
-                    </svg>
-                </div>
+                    class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-backgroundDark-600/30 backdrop-blur-sm transition-colors duration-500 hover:border-primary/30 group">
 
-                <div
-                    class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-backgroundDark-800 via-backgroundDark-800/80 to-transparent">
-                    <div class="mb-2">
-                        <span
-                            class="font-mono text-[10px] text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">//
-                            SOCIAL_GRAPH</span>
+                    <!-- Spotlight Effects -->
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(48, 233, 187, 0.15), transparent 40%); opacity: ${opacity}`">
                     </div>
-                    <h3 class="text-xl font-regular text-text-200 group-hover:text-primary transition-colors">Connect.io
-                    </h3>
+                    <div class="pointer-events-none absolute -inset-px transition duration-300 z-0"
+                        :style="`background: radial-gradient(600px circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), transparent 40%); opacity: ${opacity}`">
+                    </div>
+
+                    <!-- Visual Area: AI -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-backgroundDark-600 to-backgroundDark-800 relative overflow-hidden group z-10">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="absolute w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-pulse"></div>
+                            <div
+                                class="relative z-10 grid grid-cols-3 gap-3 opacity-80 group-hover:rotate-12 transition-transform duration-700">
+                                <div class="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(68,220,126,0.5)]"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(48,233,187,0.5)]">
+                                </div>
+                                <div class="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(68,220,126,0.5)]"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(48,233,187,0.5)]">
+                                </div>
+                                <div class="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(68,220,126,0.5)]"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(48,233,187,0.5)]">
+                                </div>
+                                <div class="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(68,220,126,0.5)]"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(48,233,187,0.5)]">
+                                </div>
+                                <div class="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(68,220,126,0.5)]"></div>
+                            </div>
+                            <svg class="absolute w-full h-full opacity-30" viewBox="0 0 100 100">
+                                <path d="M50 50 L35 35 M50 50 L65 35 M50 50 L35 65 M50 50 L65 65" stroke="white"
+                                    stroke-width="0.5"></path>
+                                <circle cx="50" cy="50" r="15" stroke="rgba(48,233,187,0.5)" stroke-width="0.5"
+                                    fill="none" class="group-hover:scale-125 transition-transform duration-700">
+                                </circle>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="p-6 flex flex-col flex-grow relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-text-200 ring-1 ring-inset ring-white/5">
+                                Generative AI
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="text-text-600 transition-colors hover:text-primary cursor-pointer">
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-xl font-semibold text-text-200 mb-2 tracking-tight group-hover:text-primary transition-colors">
+                            Sentient AI
+                        </h3>
+
+                        <p class="text-text-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Autonomous customer support agent capable of performing complex actions. Built on a custom
+                            RAG architecture with vector memory.
+                        </p>
+
+                        <div class="pt-4 border-t border-white/5">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">LangChain</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">Pinecone</span>
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider text-text-600 hover:text-text-400 transition-colors">OpenAI</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
+
+        <!-- Stats / Trust Banner (Bottom) -->
+        <div
+            class="mt-24 pt-8 border-t border-white/5 flex flex-wrap justify-center md:justify-between gap-8 opacity-60 hover:opacity-100 transition-opacity duration-500">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-backgroundDark-600/50 rounded-lg border border-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-text-200">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-text-200 font-bold">100%</span>
+                    <span class="text-xs text-text-600 uppercase tracking-wider">Clean Code</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-backgroundDark-600/50 rounded-lg border border-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-text-200">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-text-200 font-bold">Scalable</span>
+                    <span class="text-xs text-text-600 uppercase tracking-wider">Architecture</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-backgroundDark-600/50 rounded-lg border border-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-text-200">
+                        <path
+                            d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" />
+                        <path
+                            d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-text-200 font-bold">AI Native</span>
+                    <span class="text-xs text-text-600 uppercase tracking-wider">Solutions</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
