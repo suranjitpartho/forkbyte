@@ -127,6 +127,29 @@ document.addEventListener('DOMContentLoaded', () => {
     globeGroup.add(orbit2);
 
 
+    // 5. Background Sparkles (Flowing Data/Stars)
+    const sparklesGeo = new THREE.BufferGeometry();
+    const sparklesCount = 1000;
+    const sparklesPos = new Float32Array(sparklesCount * 3);
+
+    for (let i = 0; i < sparklesCount * 3; i += 3) {
+        sparklesPos[i] = (Math.random() - 0.5) * 150; // Wide X spread
+        sparklesPos[i + 1] = (Math.random() - 0.5) * 80; // Y spread
+        sparklesPos[i + 2] = (Math.random() - 0.5) * 60; // Z spread
+    }
+
+    sparklesGeo.setAttribute('position', new THREE.BufferAttribute(sparklesPos, 3));
+    const sparklesMat = new THREE.PointsMaterial({
+        color: 0xbaee1c, // SubAccent (Lime/Green)
+        size: 0.15,
+        transparent: true,
+        opacity: 0.4,
+        blending: THREE.AdditiveBlending
+    });
+    const sparklesMesh = new THREE.Points(sparklesGeo, sparklesMat);
+    scene.add(sparklesMesh);
+
+
     // --- ANIMATION LOOP ---
 
     // Mouse Interaction variables
@@ -167,6 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ring.scale.set(1 + scale, 1 + scale, 1);
         ring.material.opacity = 1 - (scale / 3);
 
+        // Animate Sparkles
+        sparklesMesh.rotation.y = elapsedTime * 0.05; // Faster rotation
+        sparklesMesh.position.y = Math.sin(elapsedTime * 0.2) * 4; // Larger floating movement
+
         renderer.render(scene, camera);
     };
 
@@ -179,12 +206,21 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Scroll Handler for Opacity
+    // Scroll Handler for Opacity and Blur
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const heroHeight = window.innerHeight;
-        // Fade out faster, fully gone by 80% of viewport height
-        const opacity = Math.max(0, 0.6 * (1 - (scrollY / (heroHeight * 0.8))));
+
+        // Calculate progress (0 to 1) as user scrolls out of hero
+        const progress = Math.min(1, scrollY / (heroHeight * 0.8));
+
+        // Opacity: Fade from 0.6 (Hero) down to 0.3 (Content)
+        const opacity = 0.6 - (progress * 0.3);
+
+        // Blur: Increase from 0px to 4px (Subtle glass effect)
+        const blur = progress * 4;
+
         canvas.style.opacity = opacity;
+        canvas.style.filter = `blur(${blur}px)`;
     });
 });
