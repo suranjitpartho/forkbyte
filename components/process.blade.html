@@ -1,52 +1,128 @@
 <!-- Process Section -->
-<section id="process" class="py-32 relative z-10 px-6">
+<section id="process" class="py-28 relative z-10 px-6">
     <div class="max-w-7xl mx-auto">
         <div class="mb-12 text-center">
-            <h3 class="text-[#30e9bb] font-semibold tracking-wider uppercase text-sm mb-2">How We Work</h3>
-            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">The Process</h2>
-            <div class="h-1 w-20 bg-gradient-to-r from-[#30e9bb] to-emerald-600 mt-4 rounded-full mx-auto"></div>
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-primary font-mono text-xs tracking-[0.2em] uppercase mb-2">How We Work</h3>
+                <h2 class="text-4xl md:text-5xl font-regular tracking-tight text-text-200">
+                    The Process
+                </h2>
+                <div class="h-0.5 w-20 bg-gradient-to-r from-primary to-primaryDark mt-6 rounded-full mx-auto"></div>
+            </div>
         </div>
 
         <div class="grid md:grid-cols-4 gap-8 mt-16">
             <!-- Step 1 -->
-            <div class="relative">
-                <div class="text-6xl font-bold text-white/5 mb-4 font-mono absolute -top-8 -left-4 z-0 select-none">
+            <div class="relative" x-data="{ active: false }" x-init="
+                const loop = () => {
+                    setTimeout(() => {
+                        glitch();
+                        loop();
+                    }, Math.random() * 5000 + 2000);
+                };
+                const glitch = async () => {
+                    const flashes = Math.floor(Math.random() * 4) + 2;
+                    for(let i=0; i<flashes; i++) {
+                        active = true;
+                        await new Promise(r => setTimeout(r, Math.random() * 50 + 20));
+                        active = false;
+                        await new Promise(r => setTimeout(r, Math.random() * 100 + 50));
+                    }
+                };
+                loop();
+            ">
+                <div class="text-6xl font-bold font-mono absolute -top-8 -left-4 z-0 select-none transition-all duration-75"
+                    :class="active ? 'text-white opacity-100 blur-[1px] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'text-white/5 opacity-100'">
                     01</div>
                 <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-3">Discovery</h3>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Discovery</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed">We dive deep into your business logic, user
                         needs, and technical constraints.</p>
                 </div>
                 <div class="hidden md:block absolute top-8 -right-4 w-8 h-[1px] bg-white/10"></div>
             </div>
             <!-- Step 2 -->
-            <div class="relative">
-                <div class="text-6xl font-bold text-white/5 mb-4 font-mono absolute -top-8 -left-4 z-0 select-none">
+            <div class="relative" x-data="{ active: false }" x-init="
+                const loop = () => {
+                    setTimeout(() => {
+                        glitch();
+                        loop();
+                    }, Math.random() * 5000 + 2000);
+                };
+                const glitch = async () => {
+                    const flashes = Math.floor(Math.random() * 4) + 2;
+                    for(let i=0; i<flashes; i++) {
+                        active = true;
+                        await new Promise(r => setTimeout(r, Math.random() * 50 + 20));
+                        active = false;
+                        await new Promise(r => setTimeout(r, Math.random() * 100 + 50));
+                    }
+                };
+                setTimeout(() => loop(), 1000); // Offset start
+            ">
+                <div class="text-6xl font-bold font-mono absolute -top-8 -left-4 z-0 select-none transition-all duration-75"
+                    :class="active ? 'text-white opacity-100 blur-[1px] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'text-white/5 opacity-100'">
                     02</div>
                 <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-3">Design</h3>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Design</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed">Wireframing, prototyping, and high-fidelity
                         UI design focused on conversion.</p>
                 </div>
                 <div class="hidden md:block absolute top-8 -right-4 w-8 h-[1px] bg-white/10"></div>
             </div>
             <!-- Step 3 -->
-            <div class="relative">
-                <div class="text-6xl font-bold text-white/5 mb-4 font-mono absolute -top-8 -left-4 z-0 select-none">
+            <div class="relative" x-data="{ active: false }" x-init="
+                const loop = () => {
+                    setTimeout(() => {
+                        glitch();
+                        loop();
+                    }, Math.random() * 5000 + 2000);
+                };
+                const glitch = async () => {
+                    const flashes = Math.floor(Math.random() * 4) + 2;
+                    for(let i=0; i<flashes; i++) {
+                        active = true;
+                        await new Promise(r => setTimeout(r, Math.random() * 50 + 20));
+                        active = false;
+                        await new Promise(r => setTimeout(r, Math.random() * 100 + 50));
+                    }
+                };
+                setTimeout(() => loop(), 2000); // Offset start
+            ">
+                <div class="text-6xl font-bold font-mono absolute -top-8 -left-4 z-0 select-none transition-all duration-75"
+                    :class="active ? 'text-white opacity-100 blur-[1px] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'text-white/5 opacity-100'">
                     03</div>
                 <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-3">Build</h3>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Build</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed">Agile development with weekly sprints,
                         rigorous testing, and clean code.</p>
                 </div>
                 <div class="hidden md:block absolute top-8 -right-4 w-8 h-[1px] bg-white/10"></div>
             </div>
             <!-- Step 4 -->
-            <div class="relative">
-                <div class="text-6xl font-bold text-white/5 mb-4 font-mono absolute -top-8 -left-4 z-0 select-none">
+            <div class="relative" x-data="{ active: false }" x-init="
+                const loop = () => {
+                    setTimeout(() => {
+                        glitch();
+                        loop();
+                    }, Math.random() * 5000 + 2000);
+                };
+                const glitch = async () => {
+                    const flashes = Math.floor(Math.random() * 4) + 2;
+                    for(let i=0; i<flashes; i++) {
+                        active = true;
+                        await new Promise(r => setTimeout(r, Math.random() * 50 + 20));
+                        active = false;
+                        await new Promise(r => setTimeout(r, Math.random() * 100 + 50));
+                    }
+                };
+                setTimeout(() => loop(), 3000); // Offset start
+            ">
+                <div class="text-6xl font-bold font-mono absolute -top-8 -left-4 z-0 select-none transition-all duration-75"
+                    :class="active ? 'text-white opacity-100 blur-[1px] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'text-white/5 opacity-100'">
                     04</div>
                 <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-3">Launch</h3>
+                    <h3 class="text-xl font-medium text-text-200 mb-3">Launch</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed">Deployment strategy, CI/CD setup, and
                         post-launch performance monitoring.</p>
                 </div>
