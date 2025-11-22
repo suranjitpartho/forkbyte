@@ -19,7 +19,7 @@ tailwind.config = {
                 backgroundDark: {
                     800: '#22242d',
                     600: '#272a37',
-                    400: '#373a49',
+                    400: '#2c2f3eff',
                 },
             },
             animation: {
