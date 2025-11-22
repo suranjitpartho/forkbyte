@@ -108,19 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
         new THREE.Vector3(0, 0, 0),
         new THREE.Vector3(0, 0, 4)
     ]);
-    const lineMat = new THREE.LineBasicMaterial({ color: 0x44dc7e, transparent: true, opacity: 0.3 }); // Accent (Green)
+    const lineMat = new THREE.LineBasicMaterial({ color: 0x44dc7e, transparent: true, opacity: 0.5 }); // Accent (Green)
     const pinLine = new THREE.Line(lineGeo, lineMat);
     markerGroup.add(pinLine);
 
 
     // 4. Orbital Rings
-    const orbitGeo1 = new THREE.TorusGeometry(14, 0.1, 16, 100);
+    const orbitGeo1 = new THREE.TorusGeometry(12, 0.06, 16, 100);
     const orbitMat = new THREE.MeshBasicMaterial({ color: 0x8ad8c4, transparent: true, opacity: 0.3 }); // Primary Light
     const orbit1 = new THREE.Mesh(orbitGeo1, orbitMat);
     orbit1.rotation.x = Math.PI / 2;
     globeGroup.add(orbit1);
 
-    const orbitGeo2 = new THREE.TorusGeometry(18, 0.05, 16, 100);
+    const orbitGeo2 = new THREE.TorusGeometry(14, 0.04, 16, 100);
     const orbit2 = new THREE.Mesh(orbitGeo2, orbitMat);
     orbit2.rotation.x = Math.PI / 3;
     orbit2.rotation.y = Math.PI / 6;
