@@ -27,6 +27,7 @@ tailwind.config = {
                 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 'spin-double-fade': 'spin-double-fade 8s linear infinite',
                 'spin-card-sequence': 'spin-card-sequence 12s linear infinite',
+                'icon-color-sequence': 'icon-color-sequence 12s linear infinite',
             },
             keyframes: {
                 fadeInUp: {
@@ -42,10 +43,14 @@ tailwind.config = {
                 },
                 'spin-card-sequence': {
                     '0%': { transform: 'rotate(0deg)', opacity: '0' },
-                    '2%': { opacity: '1' },
+                    '5%': { opacity: '1' },
                     '20%': { transform: 'rotate(1800deg)', opacity: '1' },
-                    '22%': { opacity: '0' },
-                    '100%': { transform: 'rotate(1800deg)', opacity: '0' }
+                    '25%': { transform: 'rotate(2160deg)', opacity: '0' },
+                    '100%': { transform: 'rotate(2160deg)', opacity: '0' }
+                },
+                'icon-color-sequence': {
+                    '0%, 25%, 100%': { color: '#797979ff', backgroundColor: 'rgba(236, 236, 236, 0.05)' },
+                    '5%, 20%': { color: '#30e9bb', backgroundColor: 'rgba(48, 233, 187, 0.2)' },
                 }
             }
         }
