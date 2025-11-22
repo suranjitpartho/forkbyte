@@ -33,27 +33,25 @@
         <div class="absolute inset-0 opacity-[0.03] grid-pattern"></div>
 
         <!-- Digital Data Animation Canvas -->
-        <canvas id="circuit-canvas" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+        <canvas id="circuit-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
     </div>
 
-    <div data-include="components/header.blade.html"></div>
+    <?php include 'components/header.blade.html'; ?>
 
-    <div data-include="components/hero.blade.html"></div>
+    <?php include 'components/hero.blade.html'; ?>
 
-    <div data-include="components/stats.blade.html"></div>
+    <?php include 'components/stats.blade.html'; ?>
 
-    <div data-include="components/services.blade.html"></div>
+    <?php include 'components/services.blade.html'; ?>
 
-    <div data-include="components/work.blade.html"></div>
+    <?php include 'components/work.blade.html'; ?>
 
-    <div data-include="components/process.blade.html"></div>
+    <?php include 'components/process.blade.html'; ?>
 
-    <div data-include="components/footer.blade.html"></div>
+    <?php include 'components/footer.blade.html'; ?>
 
     <!-- Circuit Board Animation Script -->
     <script src="js/circuit-animation.js"></script>
-    <!-- Component Loader -->
-    <script src="js/component-loader.js"></script>
 </body>
 
 </html>
