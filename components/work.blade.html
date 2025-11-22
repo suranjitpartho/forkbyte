@@ -1,19 +1,11 @@
 <!-- Featured Work - Spotlight Grid -->
-<section id="work" class="py-32 relative z-10 px-6" x-data="{ shown: false }" x-init="const observer = new IntersectionObserver((entries) => {
+<section id="work" class="py-24 relative z-10 px-6" x-data="{ shown: false }" x-init="const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
         shown = true;
         observer.disconnect();
     }
 }, { threshold: 0.1 });
 observer.observe($el);">
-
-    <!-- Background Ambiance -->
-    <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none">
-    </div>
-    <div
-        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full pointer-events-none">
-    </div>
 
     <!-- Grid Pattern Overlay -->
     <div
@@ -23,26 +15,14 @@ observer.observe($el);">
     <div class="max-w-7xl mx-auto relative z-10">
 
         <!-- Section Header -->
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 transition-all duration-1000 ease-out transform"
+        <div class="flex flex-col items-center text-center mb-16 gap-6 transition-all duration-1000 ease-out transform"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <div class="max-w-2xl">
-                <div class="flex items-center gap-2 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="text-primary animate-pulse">
-                        <path
-                            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                    </svg>
-                    <span class="text-primary font-mono text-xs tracking-[0.2em] uppercase">Selected Works</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-200 tracking-tight mb-4">
-                    Digital <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Evolution</span>
+                <h3 class="text-primary font-mono text-xs tracking-[0.2em] uppercase mb-2">Selected Works</h3>
+                <h2 class="text-4xl md:text-5xl font-regular tracking-tight text-text-200">
+                    Digital Evolution
                 </h2>
-                <p class="text-text-400 text-lg max-w-lg leading-relaxed">
-                    We architect digital ecosystems. From enterprise-grade systems to autonomous AI agents, we build the
-                    future.
-                </p>
+                <div class="h-0.5 w-20 bg-gradient-to-r from-primary to-primaryDark mt-6 rounded-full mx-auto"></div>
             </div>
 
             <button
@@ -304,7 +284,8 @@ observer.observe($el);">
                         </h3>
 
                         <p class="text-text-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Autonomous customer support agent capable of performing complex actions. Built on a custom
+                            Autonomous customer support agent capable of performing complex actions. Built
+                            o n a custom
                             RAG architecture with vector memory.
                         </p>
 
