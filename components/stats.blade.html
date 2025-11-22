@@ -20,8 +20,10 @@
             <div class="text-text-400 text-sm uppercase tracking-wider">Client Retention</div>
         </div>
         <div>
-            <div class="text-3xl md:text-4xl font-medium text-text-200 mb-1">A++</div>
-            <div class="text-text-400 text-sm uppercase tracking-wider">Code Quality</div>
+            <div x-data="counter(20, '+')" class="text-3xl md:text-4xl font-medium text-text-200 mb-1">
+                <span x-text="current + suffix">20+</span>
+            </div>
+            <div class="text-text-400 text-sm uppercase tracking-wider">Technologies Used</div>
         </div>
     </div>
 </div>
