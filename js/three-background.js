@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DIGITAL GLOBE SYSTEM ---
 
     const globeGroup = new THREE.Group();
-    // Position: Right (x > 0) and slightly Up (y > 0) relative to camera center
-    globeGroup.position.set(10, 4, 0);
+    // Position:
+    globeGroup.position.set(14, 4, 0);
     scene.add(globeGroup);
 
     // 1. The Grid Sphere (Latitude/Longitude)
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const markerGroup = new THREE.Group();
 
     // Position the marker
-    const lat = 45;
+    const lat = 35;
     const lon = 15;
     const phiMark = (90 - lat) * (Math.PI / 180);
     const thetaMark = (lon + 180) * (Math.PI / 180);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     markerGroup.add(dot);
 
     // 3b. The Pulsing Ring
-    const ringGeo = new THREE.RingGeometry(0.4, 0.5, 32);
+    const ringGeo = new THREE.RingGeometry(0.6, 0.5, 32);
     const ringMat = new THREE.MeshBasicMaterial({
         color: 0xbaee1c,
         transparent: true,
