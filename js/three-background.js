@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const globeGroup = new THREE.Group();
     // Position:
-    globeGroup.position.set(14, 4, 0);
+    globeGroup.position.set(16, 4, 0);
     scene.add(globeGroup);
 
     // 1. The Grid Sphere (Latitude/Longitude)
-    const globeGeo = new THREE.WireframeGeometry(new THREE.SphereGeometry(10, 32, 32));
+    const globeGeo = new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(10, 10));
     const globeMat = new THREE.LineBasicMaterial({
         color: 0x30e9bb, // Primary (Teal)
         transparent: true,
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Position the marker
     const lat = 35;
-    const lon = 15;
+    const lon = window.innerWidth < 768 ? 135 : 15;
     const phiMark = (90 - lat) * (Math.PI / 180);
     const thetaMark = (lon + 180) * (Math.PI / 180);
 
@@ -174,12 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
         targetX = mouseX * 0.0005;
         targetY = mouseY * 0.0005;
 
-        // Rotate Globe
-        globeGroup.rotation.y += 0.002;
+        // Gentle Floating Animation (Calm & Subtle)
+        const floatY = Math.sin(elapsedTime * 0.2) * 0.1;
+        const floatX = Math.cos(elapsedTime * 0.15) * 0.1;
 
-        // Mouse Interaction (Tilt)
-        globeGroup.rotation.y += 0.05 * (targetX - globeGroup.rotation.y);
-        globeGroup.rotation.x += 0.05 * (targetY - globeGroup.rotation.x);
+        // Smoothly interpolate towards the floating position + mouse offset
+        // This restores the "smooth like before" mouse tracking while keeping the floating effect
+        globeGroup.rotation.y += 0.05 * ((floatY + targetX) - globeGroup.rotation.y);
+        globeGroup.rotation.x += 0.05 * ((floatX + targetY) - globeGroup.rotation.x);
 
         // Animate Orbits
         orbit1.rotation.z += 0.002;
