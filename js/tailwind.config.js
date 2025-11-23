@@ -23,13 +23,6 @@ tailwind.config = {
                     400: '#2c2f3eff',
                 },
             },
-            animation: {
-                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                'spin-double-fade': 'spin-double-fade 8s linear infinite',
-                'spin-card-sequence': 'spin-card-sequence 12s linear infinite',
-                'icon-color-sequence': 'icon-color-sequence 12s linear infinite',
-            },
             keyframes: {
                 fadeInUp: {
                     '0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -52,8 +45,20 @@ tailwind.config = {
                 'icon-color-sequence': {
                     '0%, 25%, 100%': { color: '#797979ff', backgroundColor: 'rgba(236, 236, 236, 0.05)' },
                     '5%, 20%': { color: '#30e9bb', backgroundColor: 'rgba(48, 233, 187, 0.2)' },
+                },
+                marquee: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-50%)' },
                 }
-            }
+            },
+            animation: {
+                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'spin-double-fade': 'spin-double-fade 8s linear infinite',
+                'spin-card-sequence': 'spin-card-sequence 12s linear infinite',
+                'icon-color-sequence': 'icon-color-sequence 12s linear infinite',
+                marquee: 'marquee 25s linear infinite',
+            },
         }
     }
 }

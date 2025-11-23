@@ -46,6 +46,8 @@
 
     <?php include 'components/work.blade.html'; ?>
 
+    <?php include 'components/technologies.blade.html'; ?>
+
     <?php include 'components/process.blade.html'; ?>
 
     <?php include 'components/footer.blade.html'; ?>
